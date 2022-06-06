@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Chats</title>
+    <script src="./script.js" defer></script>
+    <script src="socket.io/socket.io.js" defer></script>
+  </head>
+  <body>
+   
+
+  <section class="onboarding-page">
+    <header>
+      <h1>My Chat</h1>
+    </header>
+
+    <main id="welcome-section">
+      <h1>Welcome to my Chat!</h1>
+      <div>
+        <img src="./b65af8e02221147b5acc063635344129.png" alt="hero-image" />
+      </div>
+    </main>
+
+    <footer id="main-footer">
+      <h1>Join A Chat</h1>
+      <button class="start-chat-btn"> Get Started</button>
+      <div>&copy;2022</div>
+    </footer>
+  </section>
+
+  <!-- Asks for user name-->
+<section class="info-page">
+  <div class="content-info-page">
+    <div id="exit-info-page">&times;</div>
+  <label for="name">Enter your name</label>
+  <input type="text" name="name" id="name">
+  <button class="join-chat">Join</button>
+  </div>
+</section>
+
+    <!--
+    The chat room
+-->
+
+
+    <section class="chat-room">
+      <header>
+        <h1>My Chat</h1>
+        <button>Log Out of Chat</button>
+      </header>
+      <main>
+        <ul class="chat-history"> 
+          <li class="my-message">
+              Hi!
+          </li>
+          <li class="someone-joined">
+              Abc joined!
+          </li>
+          <li class="others-message">
+            
+              Hey! Whatsup
+
+          </li>
+          
+
+        </ul>
+      </main>
+      <footer>
+        <textarea name="" id="type-chat" cols="10" rows="10"></textarea>
+        <button>Send</button>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>

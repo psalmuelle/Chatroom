@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: #0f0723;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+}
+.onboarding-page {
+  display: none;
+  height: 100%;
+}
+.onboarding-page header {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.onboarding-page header h1 {
+  font-family: "Leckerli One", cursive;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.911);
+}
+#welcome-section {
+  margin: 2rem 0 0 0;
+  height: calc(100% - 6rem);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#welcome-section div {
+  height: 80%;
+}
+#welcome-section  img {
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+#welcome-section h1 {
+  height: 4.5rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#main-footer {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 36%;
+  left: 0px;
+  bottom: 0;
+  background: linear-gradient(
+    180.05deg,
+    rgba(34, 33, 33, 0.098) -117.05%,
+    rgba(34, 33, 33, 0.49) 99.96%
+  );
+  backdrop-filter: blur(14.2993px);
+}
+#main-footer h1 {
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.start-chat-btn {
+  background: #f5901a;
+  color: white;
+  width: 75%;
+  font-weight: bold;
+  font-size: 18px;
+  height: 3rem;
+  border: 0;
+  border-radius: 5px;
+}
+.start-chat-btn:active {
+  background: #f58f1ad5;
+}
+#main-footer div {
+  position: absolute;
+  bottom: 0;
+}
+
+.chat-room {
+  display: block;
+  background: rgba(15, 7, 35, 0.952);
+  color: black;
+  font-family: "Raleway", sans-serif;
+  height: 100vh;
+}
+.chat-room header {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem 0 3rem;
+  justify-content: space-between;
+  background: #0f0723;
+}
+.chat-room header h1 {
+  font-family: "Leckerli One", cursive;
+
+  text-align: center;
+  color: rgba(255, 255, 255, 0.911);
+}
+.chat-room header button {
+  background: #f5901a;
+  height: 2rem;
+  width: 8rem;
+  border: 0;
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.774);
+  font-weight: 700;
+}
+.chat-room header button:active {
+  background: #f58f1ad5;
+}
+.chat-room main {
+  overflow: scroll;
+  height: calc(100% - 8rem);
+  background: white;
+}
+.chat-history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80%;
+}
+.chat-history li{
+ list-style-type: none;
+
+display: inline-block;
+}
+.my-message{
+  background: #000;
+  justify-content: flex-end;
+}
+.someone-joined{
+
+}
+.others-message{
+
+}
+
+.chat-room footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  height: 4rem;
+  border-radius: 1rem;
+  width: 80%;
+}
+#type-chat {
+  width: 60%;
+  height: 2.5rem;
+  resize: none;
+  border: 3px solid silver;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  font-family: "Raleway", sans-serif;
+  font-family: "Leckerli One", cursive;
+}
+.chat-room footer button {
+  width: 6rem;
+  height: 2.3rem;
+  margin-left: 2rem;
+  background: #f5901a;
+  border: 0;
+  border-radius: 5px;
+}
+.chat-room footer button:active {
+  background: #f58f1ad5;
+}
+
+.info-page{
+
+ position: absolute;
+ display: none;
+ justify-content: center;
+ align-items: center;
+ top: 0;
+  width: 100%;
+  height: 100%;
+ background-color: rgba(0, 0, 0, 0.829);
+ backdrop-filter: blur(30px);
+  color: black;
+}
+.content-info-page{
+  position: relative;
+  width: 70%;
+  height: 15rem;
+  background: white;
+  border-radius: 5px;
+  font-family: "Leckerli One", cursive;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
+.info-page input{
+margin-top: 2rem;
+height: 2rem;
+width: 95%;
+padding-left: 0.5rem;
+}
+
+
+.join-chat{
+  background: #f5901a;
+  width: 8rem;
+  height: 2rem;
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 5px;
+}
+.join-chat:active {
+  background: #f58f1ad5;
+ 
+}
+#exit-info-page{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+cursor: pointer;
+font-size: 2rem;
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 100%;
+
+  top: 3%;
+  right: 5%;
+}
+@media screen and (min-width: 540px) {
+  #welcome-section {
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  #welcome-section div {
+    height: 100%;
+  }
+  #welcome-section h1 {
+    margin-bottom: 17rem;
+  }
+  .info-page input{
+  
+    width: 50%;
+    }
+}
