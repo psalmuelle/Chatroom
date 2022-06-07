@@ -96,16 +96,16 @@ function renderMessage(type, message){
 }
 
 
-
 logOut.addEventListener("click",()=>{
   socket.emit("exituser", nameOfUser)
-
+  
   chatRoom.style.display ="none";
   onboardingScreen.style.display = "block"
+  localStorage.clear()
 })
- socket.on("newuser", (update)=>{
-   renderMessage("update", update)
- })
+socket.on("newuser", (update)=>{
+  renderMessage("update", update)
+})
 socket.on("chat", (message)=>{
   renderMessage("other", message)
 })
