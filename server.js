@@ -8,6 +8,8 @@ const server = require("http").createServer(app);
 const io = require("socket.io")(3000);
 app.use(express.static(path.join(__dirname + "/public")));
 
+const port = Process.env.PORT || 3000
+
 io.on("connection", function(socket){
     socket.on("newuser", function(username){
         socket.broadcast.emit("update", username);
@@ -21,5 +23,5 @@ io.on("connection", function(socket){
     })
 })
 
-server.listen(3000)
+server.listen(port)
 
