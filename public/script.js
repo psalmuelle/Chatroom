@@ -21,7 +21,7 @@ const sendMessage = document.querySelector(".send-message");
 
 let nameOfUser
 
-// web socket
+
 
 startBtn.addEventListener("click", (e) => {
   e.preventDefault();
