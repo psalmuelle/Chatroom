@@ -1,6 +1,6 @@
 "use strict"
 
- const socket = io.connect()
+ const socket = io("http://localhost:3000")
 // the first screen
 const onboardingScreen = document.querySelector(".onboarding-page");
 const startBtn = document.querySelector(".start-chat-btn");
