@@ -1,2 +1,2 @@
-web: script.js
+web: public/script.js
 
