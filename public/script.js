@@ -74,7 +74,7 @@ function renderMessage(type, message){
     
     `
     messageContainer.appendChild(el)
-    localStorage.setItem("chat-history", messageContainer)
+   
   }else if(type == "other"){
     let el = document.createElement("li");
     el.setAttribute("class", "message others-message")
@@ -84,15 +84,21 @@ function renderMessage(type, message){
     
     `
     messageContainer.appendChild(el)
-    localStorage.setItem("chat-history", messageContainer)
+   
 
   }else if (type == "update"){
     let el = document.createElement("li");
     el.setAttribute("class", "message .someone-joined")
     el.innerText = `${message.username} joined!`
     messageContainer.appendChild(el)
-    localStorage.setItem("chat-history", messageContainer)
   }
+  localStorage.setItem("chat-history", JSON.stringify(messageContainer))
+}
+
+if (location.reload()){
+  localStorage.getItem("chat-history")
+  console.log(chatHistory)
+  console.log("nskdfnksd")
 }
 
 
