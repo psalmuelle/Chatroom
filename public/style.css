@@ -65,7 +65,7 @@ body {
     rgba(34, 33, 33, 0.098) -117.05%,
     rgba(34, 33, 33, 0.49) 99.96%
   );
-  backdrop-filter: blur(14.2993px);
+  backdrop-filter: blur(5px);
 }
 #main-footer h1 {
   width: 100%;
