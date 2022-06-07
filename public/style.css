@@ -14,7 +14,7 @@ body {
   height: 100vh;
 }
 .onboarding-page {
-  display: none;
+  display: block;
   height: 100%;
 }
 .onboarding-page header {
@@ -38,7 +38,7 @@ body {
 #welcome-section div {
   height: 80%;
 }
-#welcome-section  img {
+#welcome-section img {
   display: block;
   margin: 0 auto;
   height: 100%;
@@ -93,7 +93,7 @@ body {
 }
 
 .chat-room {
-  display: block;
+  display: none;
   background: rgba(15, 7, 35, 0.952);
   color: black;
   font-family: "Raleway", sans-serif;
@@ -135,23 +135,41 @@ body {
   flex-direction: column;
   align-items: center;
   height: 80%;
+  width: 100%;
 }
-.chat-history li{
- list-style-type: none;
+.chat-history li {
+  list-style-type: none;
+  margin: 1rem 0 1rem 0;
+  display: inline-block;
+  border-radius: 5px;
+  background:#f5901a;
+  padding: 0.5rem;
+  box-shadow: 0px -1px 16px 0px rgba(245,144,26,0.75);
+-webkit-box-shadow: 0px -1px 16px 0px rgba(245,144,26,0.75);
+-moz-box-shadow: 0px -1px 16px 0px rgba(245,144,26,0.75);
+  word-break: break-word;
+ 
+  max-width: 33%;
+  color: #0f0723;
+}
+.my-message {
+  align-self: flex-end;
+}
 
-display: inline-block;
-}
-.my-message{
-  background: #000;
-  justify-content: flex-end;
+.others-message {
+  align-self: flex-start;
 }
 .someone-joined{
-
-}
-.others-message{
-
+  font-family: "Leckerli One", cursive;
 }
 
+.message div{
+  border-radius: 1rem;
+  padding: 5px;
+  color: black;
+  font-family: "Leckerli One", cursive;
+  text-align: center;
+}
 .chat-room footer {
   display: flex;
   justify-content: center;
@@ -168,9 +186,9 @@ display: inline-block;
   resize: none;
   border: 3px solid silver;
   border-radius: 2rem;
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 0.3rem 1rem 0.5rem 1rem;
   font-family: "Raleway", sans-serif;
-  font-family: "Leckerli One", cursive;
+ 
 }
 .chat-room footer button {
   width: 6rem;
@@ -179,25 +197,25 @@ display: inline-block;
   background: #f5901a;
   border: 0;
   border-radius: 5px;
+  font-family: "Leckerli One", cursive;
 }
 .chat-room footer button:active {
   background: #f58f1ad5;
 }
 
-.info-page{
-
- position: absolute;
- display: none;
- justify-content: center;
- align-items: center;
- top: 0;
+.info-page {
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
   width: 100%;
   height: 100%;
- background-color: rgba(0, 0, 0, 0.829);
- backdrop-filter: blur(30px);
+  background-color: rgba(0, 0, 0, 0.829);
+  backdrop-filter: blur(30px);
   color: black;
 }
-.content-info-page{
+.content-info-page {
   position: relative;
   width: 70%;
   height: 15rem;
@@ -209,17 +227,15 @@ display: inline-block;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
 }
-.info-page input{
-margin-top: 2rem;
-height: 2rem;
-width: 95%;
-padding-left: 0.5rem;
+.info-page input {
+  margin-top: 2rem;
+  height: 2rem;
+  width: 95%;
+  padding-left: 0.5rem;
 }
 
-
-.join-chat{
+.join-chat {
   background: #f5901a;
   width: 8rem;
   height: 2rem;
@@ -229,18 +245,17 @@ padding-left: 0.5rem;
 }
 .join-chat:active {
   background: #f58f1ad5;
- 
 }
-#exit-info-page{
+#exit-info-page {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-cursor: pointer;
-font-size: 2rem;
-width: 2.5rem;
-height: 2.5rem;
-border-radius: 100%;
+  cursor: pointer;
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%;
 
   top: 3%;
   right: 5%;
@@ -256,8 +271,7 @@ border-radius: 100%;
   #welcome-section h1 {
     margin-bottom: 17rem;
   }
-  .info-page input{
-  
+  .info-page input {
     width: 50%;
-    }
+  }
 }
