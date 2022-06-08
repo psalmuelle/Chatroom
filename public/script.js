@@ -104,8 +104,8 @@ logOut.addEventListener("click",()=>{
   onboardingScreen.style.display = "block"
   localStorage.clear()
 })
-socket.on("newuser", (update)=>{
-  renderMessage("update", update)
+socket.on("newuser", (message)=>{
+  renderMessage("update", message)
 })
 socket.on("chat", (message)=>{
   renderMessage("other", message)
@@ -115,40 +115,39 @@ socket.on("exituser",(update)=>{
 } )
 
 
-window.addEventListener("beforeunload",(e)=>{
+window.addEventListener("beforeunload",()=>{
+  if (chatRoom.style.display ==="block" && chatHistory.innerHTML.length != 0){
  localStorage.setItem ("chats", chatHistory.innerHTML) 
+  }
 })
 
 
 
 
 
-const emptyStorage = setTimeout(()=>{
-  localStorage.clear()
- }, 1800000)
- 
- function endProcess (){
- clearTimeout(emptyStorage)
+
+
+
+function main (){
+
+
+  if(window.closed){
+   emptyStorage = setTimeout(()=>{
+      localStorage.clear()
+      console.log("cleaned")
+     }, 10000)
+  }else if(!window.closed  ){
+    clearTimeout()
+    userName.style.display = "none";
+   onboardingScreen.style.display = "none";
+  chatRoom.style.display = "block"
+  chatHistory.innerHTML = localStorage.getItem("chats")
+  }
+
+
+
 }
-
-window.addEventListener("load",(e)=>{
-  console.log(e)
-})
-
-if(window.closed){
-emptyStorage() 
-}else{
-  endProcess()
-  userName.style.display = "none";
- onboardingScreen.style.display = "none";
-chatRoom.style.display = "block"
-chatHistory.innerHTML = localStorage.getItem("chats")
-}
-
-
-
-
-
+main()
 
 
 
