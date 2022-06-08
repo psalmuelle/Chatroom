@@ -1,15 +1,6 @@
 "use strict"
 
  const socket = io()
-// the first screen
-const onboardingScreen = document.querySelector(".onboarding-page");
-const startBtn = document.querySelector(".start-chat-btn");
-
-// the second screen
-const userName = document.querySelector(".info-page");
-const exitUserName = document.querySelector("#exit-info-page");
-const userInput = document.querySelector("#name");
-const submitUserName = document.querySelector(".join-chat");
 
 // the third screen
 const chatRoom = document.querySelector(".chat-room");
@@ -19,33 +10,17 @@ const chatInput = document.querySelector("#type-chat");
 const sendMessage = document.querySelector(".send-message");
 
 
-let nameOfUser
+const displayName = localStorage.getItem("name")
 
 
 
-startBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  userName.style.display = "flex";
-});
-
-exitUserName.addEventListener("click", () => {
-  userName.style.display = "none";
-});
 
 
 
-  submitUserName.addEventListener("click", () => {
-  let displayName = userInput.value
-  if(userName.length === 0){
-    return;
-  }
-  nameOfUser = displayName;
-  userName.style.display = "none";
-  onboardingScreen.style.display = "none";
-  chatRoom.style.display = "block"
-  socket.emit("newuser", displayName);
+ 
+  
 
-  });
+  
 
 sendMessage.addEventListener("click",()=>{
   let message = chatInput.value;
@@ -53,11 +28,11 @@ sendMessage.addEventListener("click",()=>{
     return;
   }
   renderMessage("my", {
-   username: nameOfUser,
+   username: displayName,
    text: message
   })
   socket.emit("chat",{
-    username:nameOfUser,
+    username:displayName,
     text: message
   }); 
   chatInput.value = ""
@@ -65,6 +40,7 @@ sendMessage.addEventListener("click",()=>{
 
 function renderMessage(type, message){
   let messageContainer = chatHistory;
+
   if (type == "my"){
     let el = document.createElement("li");
     el.setAttribute("class", "message my-message")
@@ -85,69 +61,61 @@ function renderMessage(type, message){
     `
     messageContainer.appendChild(el)
    
-
-  }else if (type == "update"){
-    let el = document.createElement("li");
-    el.setAttribute("class", "message .someone-joined")
-    el.innerText = `${message.username} joined!`
-    messageContainer.appendChild(el)
   }
-}
+  }
 
-
- 
-
-logOut.addEventListener("click",()=>{
-  socket.emit("exituser", nameOfUser)
-  
-  chatRoom.style.display ="none";
-  onboardingScreen.style.display = "block"
-  localStorage.clear()
-})
-socket.on("newuser", (message)=>{
-  renderMessage("update", message)
-})
 socket.on("chat", (message)=>{
   renderMessage("other", message)
 })
-socket.on("exituser",(update)=>{
-  renderMessage("update", update)
-} )
 
 
-window.addEventListener("beforeunload",()=>{
-  if (chatRoom.style.display ==="block" && chatHistory.innerHTML.length != 0){
- localStorage.setItem ("chats", chatHistory.innerHTML) 
-  }
+logOut.addEventListener("click",()=>{
+  
+  location.href = location.origin
+  localStorage.clear()
 })
 
 
 
+  window.addEventListener("beforeunload",(e)=>{
+  
+   localStorage.setItem ("chats", chatHistory.innerHTML) 
+
+  }) 
+
+
+
+
+// window.addEventListener("unload",(e)=>{
+//   console.log(e)
+//   setTimeout(()=>{
+//    localStorage.clear()
+//    console.log("cleaned")
+//   }, 1000)
+ 
+// })
 
 
 
 
 
-function main (){
+if (!window.closed){
 
-
-  if(window.closed){
-   emptyStorage = setTimeout(()=>{
-      localStorage.clear()
-      console.log("cleaned")
-     }, 10000)
-  }else if(!window.closed  ){
-    clearTimeout()
-    userName.style.display = "none";
-   onboardingScreen.style.display = "none";
-  chatRoom.style.display = "block"
-  chatHistory.innerHTML = localStorage.getItem("chats")
-  }
-
-
-
+  chatHistory.innerHTML = localStorage.getItem("chats") 
+}else if(window.closed){
+  
 }
-main()
+
+
+
+
+  //if(window.closed){
+
+  // if(!window.closed){
+  //   clearTimeout(delStore)
+  // chatHistory.innerHTML = localStorage.getItem("chats")
+  // }
+
 
 
 

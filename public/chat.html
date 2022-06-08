@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="chat.css">
+    <title>My Chats</title>
+</head>
+<body>
+    <section class="chat-room">
+        <header>
+          <h1>My Chat</h1>
+          <button class="log-out">Log Out of Chat</button>
+        </header>
+        <main>
+          <ul class="chat-history"> 
+       
+  
+          </ul>
+        </main>
+        <footer>
+          <textarea name="" id="type-chat" cols="10" rows="10"></textarea>
+          <button class="send-message">Send</button>
+        </footer>
+      </section>
+      <script src="socket.io/socket.io.js"></script>
+      <script src="./script.js"></script>
+</body>
+</html>
