@@ -14,7 +14,7 @@ const submitUserName = document.querySelector(".join-chat");
 // the third screen
 const chatRoom = document.querySelector(".chat-room");
 const logOut = document.querySelector(".log-out");
-const chatHistory = document.querySelector(".chat-history");
+let chatHistory = document.querySelector(".chat-history");
 const chatInput = document.querySelector("#type-chat");
 const sendMessage = document.querySelector(".send-message");
 
@@ -92,11 +92,9 @@ function renderMessage(type, message){
     el.innerText = `${message.username} joined!`
     messageContainer.appendChild(el)
   }
-  localStorage.setItem("chat-history", JSON.stringify(messageContainer))
 }
 
 
-  localStorage.getItem("chat-history")
  
 
 logOut.addEventListener("click",()=>{
@@ -115,5 +113,46 @@ socket.on("chat", (message)=>{
 socket.on("exituser",(update)=>{
   renderMessage("update", update)
 } )
+
+
+window.addEventListener("beforeunload",(e)=>{
+ localStorage.setItem ("chats", chatHistory.innerHTML) 
+})
+
+
+
+
+
+const emptyStorage = setTimeout(()=>{
+  localStorage.clear()
+ }, 1800000)
+ 
+ function endProcess (){
+ clearTimeout(emptyStorage)
+}
+
+window.addEventListener("load",(e)=>{
+  console.log(e)
+})
+
+if(window.closed){
+emptyStorage() 
+}else{
+  endProcess()
+  userName.style.display = "none";
+ onboardingScreen.style.display = "none";
+chatRoom.style.display = "block"
+chatHistory.innerHTML = localStorage.getItem("chats")
+}
+
+
+
+
+
+
+
+
+
+
 
 
