@@ -77,49 +77,30 @@ logOut.addEventListener("click",()=>{
 
 
 
-  window.addEventListener("beforeunload",(e)=>{
-  
-   localStorage.setItem ("chats", chatHistory.innerHTML) 
 
+  window.addEventListener("beforeunload",(e)=>{
+ e.preventDefault()
+ 
+   localStorage.setItem ("chats", chatHistory.innerHTML) 
+  localStorage.setItem ("time", new Date())
   }) 
 
-
-
-
-// window.addEventListener("unload",(e)=>{
-//   console.log(e)
-//   setTimeout(()=>{
-//    localStorage.clear()
-//    console.log("cleaned")
-//   }, 1000)
  
-// })
-
-
-
-
-
-if (!window.closed){
-
-  chatHistory.innerHTML = localStorage.getItem("chats") 
-}else if(window.closed){
   
+  if(!window.closed){
+
+ chatHistory.innerHTML =(localStorage.getItem("chats"))
+ 
+  }
+
+
+if (Date.parse(new Date()) - Date.parse(localStorage.getItem("time")) > 1800000 ){
+localStorage.clear()
+
+chatHistory.innerHTML = ""
+
 }
 
 
-
-
-  //if(window.closed){
-
-  // if(!window.closed){
-  //   clearTimeout(delStore)
-  // chatHistory.innerHTML = localStorage.getItem("chats")
-  // }
-
-
-
-
-
-
-
+ 
 

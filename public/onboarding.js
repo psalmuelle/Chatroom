@@ -33,8 +33,17 @@ startBtn.addEventListener("click", () => {
         }
     
        localStorage.setItem("name", displayName)
-        location.pathname = "/chat.html"
+        location.replace("/chat.html")
          userInput.value =""
     }
   )
+
+  if(localStorage.length ==3){
+    startBtn.addEventListener("click", () => { 
+      userName.style.display = "none";
+      location.replace("/chat.html")
+      
+    });
+    
+  }
  
