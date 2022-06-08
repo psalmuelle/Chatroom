@@ -95,12 +95,9 @@ function renderMessage(type, message){
   localStorage.setItem("chat-history", JSON.stringify(messageContainer))
 }
 
-if (location.reload()){
-  localStorage.getItem("chat-history")
-  console.log(chatHistory)
-  console.log("nskdfnksd")
-}
 
+  localStorage.getItem("chat-history")
+ 
 
 logOut.addEventListener("click",()=>{
   socket.emit("exituser", nameOfUser)
