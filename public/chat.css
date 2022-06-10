@@ -58,7 +58,7 @@ body {
     align-items: center;
     height: 80%;
     width: 100%;
-    margin: 0 0.4rem 0 0.4rem;
+    padding: 0 0.5rem 0 0.5rem;
   }
   .chat-history li {
     list-style-type: none;
