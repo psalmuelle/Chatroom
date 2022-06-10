@@ -97,14 +97,11 @@ logOut.addEventListener("click",()=>{
 
 window.onload= (function(){
 
-  if (document.cookie === "" && localStorage.getItem("chats")){
+  if (document.cookie === ""){
       localStorage.clear()
       chatHistory.innerHTML = ""
       location.href = location.origin
-    }else if(localStorage.getItem("chats")){
-      return
     }
- 
  
  
 })()
