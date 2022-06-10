@@ -98,7 +98,7 @@ function checkCookie (){
 
   let userPresence = document.cookie
   
-  if (userPresence === "" && localStorage.getItem("name") != ""){
+  if (userPresence === "" ){
     localStorage.clear()
     chatHistory.innerHTML = ""
     location.href = location.origin
