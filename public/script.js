@@ -84,7 +84,7 @@ logOut.addEventListener("click",()=>{
 
 // Just beore user leaves the browser
   window.addEventListener("beforeunload",(e)=>{
- 
+ //I used cookie to trigger a 30min count down, since cookie works even while the browser is closed
     document.cookie =`firstTimer = ${true}; expires = ${new Date(Date.parse(new Date()) + 1800000)}; path = /; secure;`
 
    localStorage.setItem ("chats", chatHistory.innerHTML) 
@@ -96,13 +96,15 @@ logOut.addEventListener("click",()=>{
 
 
 
-
+window.onload=(function(){
   if (document.cookie === ""){
-      localStorage.clear()
-      chatHistory.innerHTML = ""
-      location.href = location.origin
-    }
-   
+    localStorage.clear()
+    chatHistory.innerHTML = ""
+    location.href = location.origin
+  }
+ 
+})()
+  
 
 if (!window.closed){
   chatHistory.innerHTML =(localStorage.getItem("chats"))
