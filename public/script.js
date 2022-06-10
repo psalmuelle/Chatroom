@@ -1,8 +1,10 @@
 "use strict"
 
+
+
  const socket = io()
 
-// the third screen
+// the chat screen
 const chatRoom = document.querySelector(".chat-room");
 const logOut = document.querySelector(".log-out");
 let chatHistory = document.querySelector(".chat-history");
@@ -10,6 +12,7 @@ const chatInput = document.querySelector("#type-chat");
 const sendMessage = document.querySelector(".send-message");
 
 
+// collect username from the homepage
 const displayName = localStorage.getItem("name")
 
 
@@ -20,7 +23,7 @@ const displayName = localStorage.getItem("name")
  
   
 
-  
+  //Handles the send message button
 
 sendMessage.addEventListener("click",()=>{
   let message = chatInput.value;
@@ -38,6 +41,8 @@ sendMessage.addEventListener("click",()=>{
   chatInput.value = ""
 })
 
+
+// Rendering the messages 
 function renderMessage(type, message){
   let messageContainer = chatHistory;
 
@@ -69,38 +74,41 @@ socket.on("chat", (message)=>{
 })
 
 
+// Handles logout
 logOut.addEventListener("click",()=>{
-  
   location.href = location.origin
   localStorage.clear()
 })
 
 
 
-
+// Just beore user leaves the browser
   window.addEventListener("beforeunload",(e)=>{
- e.preventDefault()
+ 
  
    localStorage.setItem ("chats", chatHistory.innerHTML) 
   localStorage.setItem ("time", new Date())
   }) 
 
  
-  
+// Statement that restores messages after reload or closing of browser
   if(!window.closed){
-
  chatHistory.innerHTML =(localStorage.getItem("chats"))
- 
   }
+  
+// Statement that set the expiry time for the local storage
+
+window.onabort= (function(){
+  if (Date.parse(new Date()) - Date.parse(localStorage.getItem("time")) > 1800000 ){
+    localStorage.clear()
+    chatHistory.innerHTML = ""
+    location.href = location.origin
+    }
+})()
 
 
-if (Date.parse(new Date()) - Date.parse(localStorage.getItem("time")) > 1800000 ){
-localStorage.clear()
-
-chatHistory.innerHTML = ""
-
-}
 
 
- 
+
+
 
