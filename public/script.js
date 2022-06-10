@@ -98,15 +98,16 @@ function checkCookie (){
 
   let userPresence = document.cookie
   
-  if (location.pathname === "/chat" &&userPresence === "" ){
+  if (userPresence === "" ){
     localStorage.clear()
     chatHistory.innerHTML = ""
     location.href = location.origin
-  }else{
-    chatHistory.innerHTML =(localStorage.getItem("chats"))
   }
   }
-
+  
+if (!window.closed){
+  chatHistory.innerHTML =(localStorage.getItem("chats"))
+}
 
 checkCookie()
 
