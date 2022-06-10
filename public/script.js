@@ -95,7 +95,7 @@ logOut.addEventListener("click",()=>{
 // Statement that set the expiry time for the local storage
 
 
-window.onload= (function(){
+window.onunload= (function(){
 
   let userPresence = document.cookie
   
