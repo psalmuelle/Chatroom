@@ -96,7 +96,7 @@ logOut.addEventListener("click",()=>{
 
 
 window.onload= (function(){
-if (localStorage.getItem("name")){
+if (localStorage.getItem("chats")){
   if (document.cookie === ""){
       localStorage.clear()
       chatHistory.innerHTML = ""
