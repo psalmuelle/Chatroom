@@ -105,7 +105,7 @@ window.onload= (function(){
       location.href = location.origin
     }
   }else{
-    return
+    chatHistory.innerHTML =(localStorage.getItem("chats"))
   }
  
  
