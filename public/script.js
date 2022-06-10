@@ -99,7 +99,7 @@ window.onload= (function(){
 
   if (localStorage.getItem("chats")){
 
-    if (document.cookie === "" || localStorage.getItem("name") ){
+    if (document.cookie === "" || !localStorage.getItem("name") ){
       localStorage.clear()
       chatHistory.innerHTML = ""
       location.href = location.origin
