@@ -98,7 +98,7 @@ logOut.addEventListener("click",()=>{
 
   let userPresence = document.cookie
   
-  if (userPresence === "" ){
+  if (location.pathname === "/chat.html" && userPresence === "" ){
     localStorage.clear()
     chatHistory.innerHTML = ""
     location.href = location.origin
@@ -110,7 +110,7 @@ if (!window.closed){
 }
 
 
-
+console.log(location.pathname)
 
 
 
