@@ -85,26 +85,33 @@ logOut.addEventListener("click",()=>{
 // Just beore user leaves the browser
   window.addEventListener("beforeunload",(e)=>{
  
- 
+    document.cookie =`firstTimer = ${true}; expires = ${new Date(Date.parse(new Date()) + 1800000)}; path = /; secure;`
+
    localStorage.setItem ("chats", chatHistory.innerHTML) 
-  localStorage.setItem ("time", new Date())
+
   }) 
 
  
-// Statement that restores messages after reload or closing of browser
-  if(!window.closed){
- chatHistory.innerHTML =(localStorage.getItem("chats"))
-  }
-  
 // Statement that set the expiry time for the local storage
 
-window.onabort= (function(){
-  if (Date.parse(new Date()) - Date.parse(localStorage.getItem("time")) > 1800000 ){
+function checkCookie (){
+
+  let userPresence = document.cookie
+  
+  if (userPresence === "" && localStorage.getItem("name") != ""){
     localStorage.clear()
     chatHistory.innerHTML = ""
     location.href = location.origin
-    }
-})()
+  }else{
+    chatHistory.innerHTML =(localStorage.getItem("chats"))
+  }
+  }
+
+
+window.onunload= checkCookie()
+
+
+
 
 
 

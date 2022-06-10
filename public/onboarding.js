@@ -33,7 +33,7 @@ submitUserName.addEventListener("click", () => {
 });
 
 // Check if user has history, the page skips the Enter your name section to the chat page directly
-if (localStorage.length == 3) {
+if (localStorage.length == 2) {
   startBtn.addEventListener("click", () => {
     userName.style.display = "none";
     location.replace("/chat.html");
