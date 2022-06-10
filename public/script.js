@@ -94,8 +94,16 @@ logOut.addEventListener("click",()=>{
  
 // Statement that set the expiry time for the local storage
 
-
-
+window.onunload= (function (){
+  
+ if(document.cookies = ""){
+   localStorage.clear();
+   chatHistory.innerHTML = ""
+   location.href = location.origin
+ }else{
+   return
+ }
+})()
 
   
 
