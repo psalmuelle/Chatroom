@@ -97,15 +97,20 @@ logOut.addEventListener("click",()=>{
 
 window.onload= (function(){
 
-  if (localStorage.getItem("chats")){
+  // if (localStorage.getItem("chats")){
 
-    if (document.cookie === "" || !localStorage.getItem("name") ){
-      localStorage.clear()
-      chatHistory.innerHTML = ""
-      location.href = location.origin
-    }
+  //   if (document.cookie === "" || !localStorage.getItem("name") ){
+  //     localStorage.clear()
+  //     chatHistory.innerHTML = ""
+  //     location.href = location.origin
+  //   }
+  // }else{
+  //   return
+  // }
+  if ( document.cookie){
+    alert("OMO !!!!")
   }else{
-    return
+    alert("FUCK UP")
   }
  
 })()
