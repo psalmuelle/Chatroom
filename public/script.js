@@ -100,7 +100,7 @@ window.onload= (function(){
   let userPresence = document.cookie
   if (localStorage.getItem("chats")){
 
-    if (location.pathname === "/chat.html" && userPresence === "" ){
+    if (userPresence === "" ){
       localStorage.clear()
       chatHistory.innerHTML = ""
       location.href = location.origin
